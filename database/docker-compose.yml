@@ -1,0 +1,15 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: "3.1"
+services:
+  db:
+    image: postgres:9.4.23
+    container_name: marketexpert-db
+    volumes:
+      - ./sql:/var/backups
+      - ./sql/script.database.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - POSTGRES_PASSWORD=se2019@%
+    ports:
+      - "5432:5432"
